@@ -1,0 +1,6 @@
+﻿Bienvenue dans MagiWorld !
+Activité : création d'un jeu de combat épique
+
+L'URL de mon repository :
+https://github.com/Phicel/MaGiworld
+
