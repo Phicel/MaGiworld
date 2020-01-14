@@ -1,28 +1,28 @@
 package com.phicel.magiworld;
 
-        import java.util.InputMismatchException;
-        import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 /**
  * @MaGiworld_le_combat_epique_!
  * @phicel
+ * @Exercice_OpenClassRoom
  */
 public class Main {
 
     public static void main(String[] args) {
         int numPlayer = 1;
 
-
-        Player player1 = createPlayer(numPlayer);         // on cree le joueur 1
-        System.out.println(player1.whoAmI());            // le perso du joueur1 parle
+        Player player1 = createPlayer(numPlayer);           // on cree le joueur 1
+        System.out.println(player1.whoAmI());               // le perso du joueur1 parle
         numPlayer++;                                        // numJoueur = 2
 
-        Player player2 = createPlayer(numPlayer);         // on cree le joueur 2
-        System.out.println(player2.whoAmI());            // le perso du joueur2 parle
+        Player player2 = createPlayer(numPlayer);           // on cree le joueur 2
+        System.out.println(player2.whoAmI());               // le perso du joueur2 parle
 
-        player1.selectEnemy(player2);               // Selection de l'ennemi du joueur1 en cours
-        player2.selectEnemy(player1);               // Selection de l'ennemi du joueur2 en cours
+        player1.selectEnemy(player2);                       // Selection de l'ennemi du joueur1 en cours
+        player2.selectEnemy(player1);                       // Selection de l'ennemi du joueur2 en cours
 
         player1.actionPlayer();                             // Lancement de la boucle de jeu
 
@@ -56,16 +56,16 @@ public class Main {
 
         switch (type) {                                     // creation du type de perso en fonction du choix
             case 1:
-                player = new Guerrier(numPlayer, strength, agility, intelligence);
+                player = new Warrior(numPlayer, strength, agility, intelligence);
                 break;
             case 2:
-                player = new Rodeur(numPlayer, strength, agility, intelligence);
+                player = new Prowler(numPlayer, strength, agility, intelligence);
                 break;
             case 3:
-                player = new Mage(numPlayer, strength, agility, intelligence);
+                player = new Wizard(numPlayer, strength, agility, intelligence);
                 break;
             default:
-                player = new Mage(numPlayer, strength, agility, intelligence);
+                player = new Wizard(numPlayer, strength, agility, intelligence);
                 break;
         }
         return player;                                      // retour du joueur crée
@@ -75,12 +75,10 @@ public class Main {
         int choice;
         Scanner scan1 = new Scanner(System.in);
         do {
-            choice = 0;
+            choice = -1;
             try {
                 choice = scan1.nextInt();
-            }
-
-            catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 scan1.next();
             }
 
